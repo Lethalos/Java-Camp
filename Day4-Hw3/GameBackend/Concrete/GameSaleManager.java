@@ -31,17 +31,13 @@ public class GameSaleManager implements GameSaleService {
 		currentCampaign = campaign;
 
 		for (Game game : gameService.getMainLibrary()) {
-			System.out.println(game);
 			game.setPrice(game.getPrice() * (100 - currentCampaign.getDiscountRate()) / 100);
-			System.out.println(game);
 		}
 	}
 
 	public void disableAllCampaigns() {
 		for (Game game : gameService.getMainLibrary()) {
-			System.out.println(game);
 			game.setPrice(game.getOriginalPrice());
-			System.out.println(game);
 		}
 	}
 }
